@@ -37,7 +37,6 @@ server.addService(remindersProto.reminderService.service, {
         let existingReminderIndex = reminders.findIndex((n) => n.id === call.request.id)
         if (existingReminderIndex !== -1) {
             let reminder = call.request
-            reminder.id = uuid.v1()
             reminders[existingReminderIndex] = reminder
             callback(null, reminder)
         } else {
