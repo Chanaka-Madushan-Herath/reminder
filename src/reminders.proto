@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+service reminderService {
+    rpc List (Empty) returns (ReminderList) {}
+    rpc Insert (Reminder) returns (Reminder) {}
+    rpc Update (Reminder) returns (Reminder) {}
+    rpc Delete (ReminderRequestId) returns (Reminder) {}
+}
+
+message Empty {}
+
+message Reminder {
+    string id = 1;
+    string title = 2;
+    string content = 3;
+}
+
+message ReminderList {
+    repeated Reminder Reminders = 1;
+}
+
+message ReminderRequestId {
+    string id = 1;
+}
+
+
